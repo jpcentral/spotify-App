@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
+import Spotify from 'spotify-web-api-js'
 
-const Spotify = require('spotify-web-api-js')
 const spotifyApi = new Spotify()
 
 class App extends Component {
@@ -9,9 +9,7 @@ class App extends Component {
     const params = this.getHashParams()
     this.state = {
       loggedIn: !!params.access_token,
-      searchResults: {
-        name: ''
-      }
+      artist: ''
     }
 
     if (params.access_token) {
@@ -19,11 +17,16 @@ class App extends Component {
     }
   }
 
-  componentDidMount () {
-    const keeshaw = 'keeshaw'
-    const track = 'track'
-    this.spotifyAPI.search(keeshaw, track)
-      .then(response => console.log(response))
+  searchTrack () {
+    spotifyApi.searchTracks('keeshaw becky')
+      .then((data) => {
+        console.log(data)
+        this.setState({
+          artist: data.tracks.items[0].name
+        })
+      }, function (err) {
+        console.error(err)
+      })
   }
 
   getHashParams () {
@@ -42,8 +45,10 @@ class App extends Component {
         <a href='http://localhost:8888'>
           <button>Login with Spotify</button>
         </a>
-        <div>Your Search Results:
-          <button onClick={() => this.search()}>Get Playlists</button>
+        <button onClick={() => this.searchTrack()}>Search Song</button>
+        <div>
+          <h1>Your Search Results:</h1>
+          <p>{this.state.artist}</p>
         </div>
       </div>
     )

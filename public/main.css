@@ -1,12 +1,6 @@
-.dot {
-  width: 2rem;
-  height: 2rem;
-  border: 1px #ccc solid;
-  border-radius: 50%;
+button {
+  width: 80px;
+  height: 40px;
+  border-radius: 1px;
 }
 
-button {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-}
