@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Spotify from 'spotify-web-api-js'
 
 const spotifyApi = new Spotify()
+let userURI = 'spotify:user:jpsccmb'
 
 class App extends Component {
   constructor () {
@@ -17,13 +18,20 @@ class App extends Component {
     }
   }
 
-  searchTrack () {
-    spotifyApi.searchTracks('keeshaw becky')
+  extractUserID(userURI) {
+    const userID = userURI.replace('spotify:user:', '')
+    return userID
+  }
+
+  getUserPlaylists(userURI) {
+    spotifyApi.getUserPlaylists(this.extractUserID(userURI))
       .then((data) => {
+        data.items.map(x =>  {
+          let playlistNames = x.name
+          let playlistURI = x.id
+          console.log('name: ', playlistNames, 'id: ', playlistURI)
+         } )    
         console.log(data)
-        this.setState({
-          artist: data.tracks.items[0].name
-        })
       }, function (err) {
         console.error(err)
       })
@@ -45,7 +53,11 @@ class App extends Component {
         <a href='http://localhost:8888'>
           <button>Login with Spotify</button>
         </a>
-        <button onClick={() => this.searchTrack()}>Search Song</button>
+        <button onClick={() => {
+        this.getUserPlaylists(userURI)
+        console.log(userURI)
+      }
+        }>Search Users Playlists</button>
         <div>
           <h1>Your Search Results:</h1>
           <p>{this.state.artist}</p>
