@@ -1,9 +1,6 @@
-let nextWordId = 0
-
-export const addWord = (word) => {
+export const updMyPlaylists = (playlists) => {
   return {
-    type: 'ADD_WORD',
-    id: nextWordId++,
-    word
+    type: 'UPD_MY_PLAYLIST',
+    myPlaylists: playlists
   }
 }

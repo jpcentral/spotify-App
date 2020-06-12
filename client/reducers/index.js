@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux'
 
-import words from './words'
+import myPlaylists from './myPlaylists'
 
 export default combineReducers({
-  words
+  myPlaylists
 })
