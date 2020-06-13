@@ -3,13 +3,6 @@ const myPlaylists = (state = {}, action) => {
     case 'UPD_MY_PLAYLIST':
       state = action.myPlaylists
       return state
-      
-    // [...state,
-    //     {
-    //       myPlaylists: action.myPlaylists
-    //     }
-    //   ]
-
     default:
       return state
   }

@@ -1,6 +1,51 @@
-button {
-  width: 80px;
-  height: 40px;
-  border-radius: 1px;
+body {
+  background-color: black;
+  color: white;
+  font-family: roboto;
 }
 
+button {
+  border-radius: 5px;
+  padding: 5px;
+}
+
+h2 {
+  margin: 0;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.playlist-header {
+  text-align: center;
+  height: 50px;
+}
+
+.playlists-box {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+justify-content: center;
+}
+
+.my-playlist-items {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 30px;
+}
+
+.playlist-item {
+  align-items: center;
+  padding-right: 10px;
+}
+
+.header {
+display: flex;
+flex-direction: column;
+justify-items: center;
+justify-content: center;
+}

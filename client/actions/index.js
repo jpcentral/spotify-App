@@ -4,3 +4,10 @@ export const updMyPlaylists = (playlists) => {
     myPlaylists: playlists
   }
 }
+
+export const updLog = (boolean) => {
+  return {
+    type: 'UPD_LOG',
+    loggedIn: boolean
+  }
+}
