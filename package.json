@@ -28,6 +28,7 @@
     "redux": "^4.0.1",
     "spotify-web-api-js": "^0.22.1",
     "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0"
   },
   "devDependencies": {
@@ -37,7 +38,6 @@
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
-    "nodemon": "^2.0.4",
-    "webpack-cli": "^3.3.11"
+    "nodemon": "^2.0.4"
   }
 }
