@@ -5,7 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "start": "webpack && node server",
-    "dev": "(cd auth-server && npm run start) & nodemon --watch server & webpack --watch"
+    "dev": "(cd ../auth-server && npm run start) & nodemon --watch server & webpack --watch"
   },
   "author": "EDA",
   "license": "ISC",
@@ -21,22 +21,21 @@
   },
   "dependencies": {
     "express": "^4.16.4",
+    "node": "^14.4.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.2",
     "redux": "^4.0.1",
-    "spotify-web-api-js": "^0.22.1"
-  },
-  "devDependencies": {
+    "spotify-web-api-js": "^0.22.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0",
     "@babel/core": "^7.4.3",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
-    "nodemon": "^2.0.4",
-    "webpack": "^4.30.0",
-    "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.11.0"
+    "nodemon": "^2.0.4"
   }
 }

@@ -10,7 +10,7 @@ export class Header extends Component {
             </div>
             { this.props.loggedIn === false && 
             <div>
-            <a href='http://localhost:8888'>
+            <a href={'http://localhost:8888/login' || 'https://james-spotify-oauth.herokuapp.com/login'}>
           <button>Login with Spotify</button>
         </a>
             </div> }
