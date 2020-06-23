@@ -8,42 +8,43 @@ import { updMyPlaylists } from '../actions/index'
 
 const spotifyApi = new Spotify()
 
-class MyPlaylists extends Component {
+export class MyPlaylists extends Component {
     constructor (props) {
       super(props) 
     }
 
     componentDidMount() {
+      const { dispatch } = this.props
         spotifyApi.getMe()
         .then(data => { 
-          spotifyApi.getUserPlaylists(extractUserID(data.uri))
+          const uri = extractUserID(data.uri)
+          spotifyApi.getUserPlaylists(uri)
           .then(playlists => {
-            this.props.dispatch(updMyPlaylists(playlists))
-          }, function (err) {
-            console.error(err)
+            dispatch(updMyPlaylists(playlists))
           })
-          .then(data => console.log(this.props.myPlaylistsData))
          })
     }
 
 render () {
-    if (Object.keys(this.props.myPlaylistsData).length === 0) {
+  const { myPlaylistsData } = this.props
+    if (Object.keys(myPlaylistsData).length === 0) {
         return <div />
     }
     return (
         <div className='my-playlists'>
-          <div className='playlist-header'><div><h2>Your Playlists</h2></div></div>
+          <div className='playlist-header'>
+            <div><h2>Your Playlists</h2></div>
+            </div>
           <table id='playlists'>
           <tbody>
-             {this.props.myPlaylistsData.items.map(playlist =>
+             {myPlaylistsData.items.map(playlist =>
         <MyPlaylist
           key={playlist.id}
           image={playlist.images[0].url}
           name={playlist.name}
           tracks={playlist.tracks.total}
           uri={playlist.uri}
-        /> 
-        )}
+        /> )}
         </tbody>
         </table>
         </div>

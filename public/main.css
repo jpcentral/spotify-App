@@ -1,12 +1,14 @@
 body {
-  background-color: black;
   color: white;
-  font-family: roboto;
+  font-size: 12px;
+  background-color: #121212;
 }
 
 button {
-  border-radius: 5px;
-  padding: 5px;
+  background-color: #151515;
+  border: 1px solid white;
+  border-radius: 20px;
+  font-size: 10px;
 }
 
 h2 {
@@ -28,7 +30,7 @@ h2 {
   display: flex;
   flex-direction: row;
   margin: 10px;
-justify-content: center;
+  justify-content: center;
 }
 
 .my-playlist-items {
@@ -43,9 +45,21 @@ justify-content: center;
   padding-right: 10px;
 }
 
+.playlist-item-name {
+  align-items: center;
+  padding-right: 10px;
+  width: 150px;
+}
+
 .header {
 display: flex;
 flex-direction: column;
 justify-items: center;
 justify-content: center;
+}
+
+.my-playlists {
+  display: inline;
+  margin-right: 15px;
+  margin-left: 15px;
 }

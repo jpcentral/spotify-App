@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
-import Spotify from 'spotify-web-api-js'
 import { connect } from 'react-redux'
 import MyPlaylists from './MyPlaylists'
 import Header from './Header'
-import TargetPlaylists from './TargetPlaylists'
+import TrgtPlaylists from './TrgtPlaylists'
 import CompareButton from './CompareButton'
 
-import { extractUserID } from './utils'
 import { getHashParams } from './utils'
 import { updLog } from '../actions/index'
 
+import Spotify from 'spotify-web-api-js'
 const spotifyApi = new Spotify()
-let userURI = 'spotify:user:jpsccmb'
 
 class App extends Component {
   constructor (props) {
@@ -19,7 +17,7 @@ class App extends Component {
     const params = getHashParams()
     if (params.access_token) {
       spotifyApi.setAccessToken(params.access_token)
-      props.dispatch(updLog(true))
+      props.dispatch(updLog())
   }
 }
 
@@ -32,8 +30,8 @@ class App extends Component {
        <div></div> : 
         <>
         <MyPlaylists />
-        <TargetPlaylists />
-        </>}
+        <TrgtPlaylists />
+        </> }
         </div>
         <CompareButton />
       </div>

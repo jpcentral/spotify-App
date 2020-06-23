@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { extractPlaylistID } from './utils'
-import { pushMyURI, filterMyURI } from '../actions/index'
+import { pushTrgtURI, filterTrgtURI } from '../actions/index'
 
-export class MyPlaylist extends React.Component {
+export class TargetPlaylist extends Component {
     constructor(props) {
         super(props);
-        this.state = {isChecked: false};
-        this.handleChecked = this.handleChecked.bind(this); // set this, because you need get methods from CheckBox   
+        this.state = {isChecked: false}
+        this.handleChecked = this.handleChecked.bind(this)
     }
     
       handleChecked () {
@@ -17,13 +17,14 @@ export class MyPlaylist extends React.Component {
 
     render() {
         const { name, image, tracks, 
-          key, uri, dispatch} = this.props   
+            key, uri, dispatch } = this.props   
         const { isChecked } = this.state
-        const id = extractPlaylistID(uri)
        if (isChecked) {
-        dispatch(pushMyURI(id))
+           const id = extractPlaylistID(uri)
+           dispatch(pushTrgtURI(id))
        } else {
-        dispatch(filterMyURI(id))
+           const id = extractPlaylistID(uri)
+           dispatch(filterTrgtURI(id))
        } 
         return (
             <tr>
@@ -44,4 +45,5 @@ export class MyPlaylist extends React.Component {
         }
     }
 
-export default connect()(MyPlaylist)
+export default connect()(TargetPlaylist)
+

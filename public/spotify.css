@@ -1,0 +1,133 @@
+body{
+    font-size: 12px;
+    background-color: #272727;
+}
+
+.sf-gray-primary{
+    background-color: #121212;
+}
+
+.sf-gray-secondary{
+    background-color: #272727;
+}
+
+.sf-playlist{
+    background-color: #171717;
+}
+
+.sf-dropdown{
+    background-color: #171717;
+    color: white;
+    font-size: 12px;
+}
+
+.sf-dropdown:hover{
+    color: white;
+}
+
+.sf-dropdown-menu{
+    background-color: #272727;
+    color: white;
+}
+
+.sf-dropdown-item{
+    background-color: #272727;
+    color: white;
+    font-size: 12px;
+}
+
+.sf-dropdown-item:hover{
+    background-color: #151515;
+    color: white;
+}
+
+.sf-btn-primary{
+    background-color: #00c358;
+    border-radius: 20px;
+    font-size: 10px;
+}
+
+.sf-btn-play{
+    color: white;
+    font-size: 22px !important;
+}
+
+.sf-btn-default{
+    background-color: #151515;
+    border: 1px solid white;
+    border-radius: 20px;
+    font-size: 10px;
+}
+
+.sf-list-group-item{
+    background-color: #121212;
+    color: white;  
+}
+
+.sf-list-group-item:hover{
+    background-color: #272727;
+    color: white;  
+}
+
+.sf-input{
+    border-radius: 20px;
+    border: none;
+    font-size: 10px;
+}
+
+.sf-name-music{
+    color: white;
+    font-size: 12px;
+}
+
+.sf-progress{
+    height: 0.2rem;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.sf-btn-control{
+    background-color: #272727;
+    color: white;
+}
+
+.sf-link{
+    font-size: 14px;
+    color: white;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.sf-link:hover{
+    color: white;
+    text-decoration: none;
+    border-bottom: 2px #00c358 solid; 
+}
+
+.title{
+    color: white;
+}
+
+.fa{
+    font-size: 16px;
+}
+
+label{
+    color: white;
+    font-size: 9px;
+}
+
+th{
+    border: none !important;
+    font-size: 10px;
+}
+
+td, tr{
+    color: white;
+    font-size: 14px;
+    border-color: #272727 !important;
+}
+
+tr:hover{
+    background-color: #272727;
+}
