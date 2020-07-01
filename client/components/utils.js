@@ -1,12 +1,18 @@
-export const extractUserID = (userURI) => {
+export const extractUserURI = (userURI) => {
     const userID = userURI.replace('spotify:user:', '')
     return userID
   }
 
-export const extractPlaylistID = (userURI) => {
-    const userID = userURI.replace('spotify:playlist:', '')
-    return userID
+  export const extractPlaylistURI = (playlistURI) => {
+    const playlistID = playlistURI.replace('spotify:playlist:', '')
+    return playlistID
   }
+
+export const extractTrackURI = (trackURI) => {
+    const trackID = trackURI.replace('spotify:track:', '')
+    return trackID
+  }  
+
 
 export const  getHashParams = () => {
     var hashParams = {}

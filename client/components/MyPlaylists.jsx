@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import MyPlaylist from './MyPlaylist'
 
 import Spotify from 'spotify-web-api-js'
-import { extractUserID } from './utils'
-import { updMyPlaylists } from '../actions/index'
+import { extractUserURI } from './utils'
+import { updMyPlaylists, updMyID } from '../actions/index'
 
 const spotifyApi = new Spotify()
 
@@ -17,7 +17,8 @@ export class MyPlaylists extends Component {
       const { dispatch } = this.props
         spotifyApi.getMe()
         .then(data => { 
-          const uri = extractUserID(data.uri)
+          const uri = extractUserURI(data.uri)
+          dispatch(updMyID(uri))
           spotifyApi.getUserPlaylists(uri)
           .then(playlists => {
             dispatch(updMyPlaylists(playlists))

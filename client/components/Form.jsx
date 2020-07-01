@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { updTrgtPlaylists } from '../actions/index'
-import { extractUserID } from './utils'
+import { updTrgtPlaylists, updTrgtID } from '../actions/index'
+import { extractUserURI } from './utils'
 
 import Spotify from 'spotify-web-api-js'
 const spotifyApi = new Spotify()
@@ -21,7 +21,8 @@ export class Form extends Component {
     
       handleSubmit(event) {
        const { dispatch } = this.props
-       const userID = extractUserID(this.state.value)
+       const userID = extractUserURI(this.state.value)
+       dispatch(updTrgtID(userID))
        spotifyApi.getUserPlaylists(userID)
           .then(playlists => {
             dispatch(updTrgtPlaylists(playlists))

@@ -5,7 +5,7 @@ const trgtURIs = (state = [], action) => {
               ...state, action.trgtURI
               ]
       case 'FILTER_TRGT_URI':
-        return state.filter(x => x !== action.trgtURI)
+        return state.filter(x => x.uri !== action.trgtURI.uri)
       default:
         return state
     }

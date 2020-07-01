@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { extractPlaylistID } from './utils'
+import { extractPlaylistURI } from './utils'
 import { pushMyURI, filterMyURI } from '../actions/index'
 
 export class MyPlaylist extends React.Component {
@@ -15,16 +15,20 @@ export class MyPlaylist extends React.Component {
         this.setState({isChecked: !this.state.isChecked})
       }
 
-    render() {
-        const { name, image, tracks, 
-          key, uri, dispatch} = this.props   
+      componentDidUpdate() {
+        const { tracks, uri, dispatch} = this.props   
         const { isChecked } = this.state
-        const id = extractPlaylistID(uri)
+        const id = extractPlaylistURI(uri)
        if (isChecked) {
-        dispatch(pushMyURI(id))
+        dispatch(pushMyURI(id, tracks))
        } else {
-        dispatch(filterMyURI(id))
+        dispatch(filterMyURI(id, tracks))
        } 
+      }
+
+    render() {
+      const { name, image, tracks, 
+        key, uri} = this.props
         return (
             <tr>
                 <td><div className='playlist-item'>

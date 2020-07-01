@@ -5,7 +5,7 @@ const myURIs = (state = [], action) => {
               ...state, action.myURI
               ]
       case 'FILTER_MY_URI':
-            return state.filter(x => x !== action.myURI)
+            return state.filter(x => x.uri !== action.myURI.uri)
       default:
         return state
     }
